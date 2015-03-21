@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -258,6 +258,22 @@
 <text x="-3.048" y="19.05" size="1.27" layer="95" font="vector" ratio="15">&gt;NAME</text>
 <text x="-2.794" y="-25.4" size="1.27" layer="96" font="vector" ratio="15">&gt;VALUE</text>
 </symbol>
+<symbol name="AD7303">
+<wire x1="-10.16" y1="10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<text x="-10.16" y="11.43" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-12.7" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="INP" x="-12.7" y="2.54" length="short" direction="in"/>
+<pin name="OFS" x="12.7" y="-7.62" length="short" direction="in" rot="R180"/>
+<pin name="OUT" x="12.7" y="-2.54" length="short" direction="in" rot="R180"/>
+<pin name="COM" x="-12.7" y="-7.62" length="short" direction="pwr"/>
+<pin name="INM" x="-12.7" y="-2.54" length="short" direction="in"/>
+<pin name="INT" x="12.7" y="2.54" length="short" direction="pas" rot="R180"/>
+<pin name="ENB" x="12.7" y="7.62" length="short" direction="out" rot="R180"/>
+<pin name="VPS" x="-12.7" y="7.62" length="short" direction="out"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="SI4164DY-T1-GE3" prefix="Q">
@@ -336,6 +352,31 @@
 <connect gate="G$1" pin="AGND" pad="AGND"/>
 <connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="VIN" pad="VIN"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="AD8307" prefix="IC">
+<description>&lt;b&gt;+2.7 V to +5.5 V, DC to 500 MHz, 92 dB
+Logarithmic Amplifier&lt;/b&gt;&lt;p&gt;
+Source: http://www.analog.com/media/en/technical-documentation/data-sheets/AD8307.pdf</description>
+<gates>
+<gate name="G$1" symbol="AD7303" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SO-8">
+<connects>
+<connect gate="G$1" pin="COM" pad="2"/>
+<connect gate="G$1" pin="ENB" pad="6"/>
+<connect gate="G$1" pin="INM" pad="1"/>
+<connect gate="G$1" pin="INP" pad="8"/>
+<connect gate="G$1" pin="INT" pad="5"/>
+<connect gate="G$1" pin="OFS" pad="3"/>
+<connect gate="G$1" pin="OUT" pad="4"/>
+<connect gate="G$1" pin="VPS" pad="7"/>
 </connects>
 <technologies>
 <technology name=""/>
